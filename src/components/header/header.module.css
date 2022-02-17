@@ -1,0 +1,10 @@
+.header{
+
+  background: #000;
+  grid-area: header;
+  color: #fff;
+}
+.header>span{
+  width: 80px;
+
+}

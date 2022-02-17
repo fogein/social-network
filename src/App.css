@@ -9,25 +9,5 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
 }
-.header{
 
-  background: #000;
-  grid-area: header;
-  color: #fff;
-}
-.header>span{
-  width: 80px;
 
-}
-.nav{
-  background: #000;
-  color: #fff;
-
-  grid-area: nav;
-
-}
-.main{
-  background: #000;
-color: #fff;
-  grid-area: main;
-}
