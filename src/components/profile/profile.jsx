@@ -4,10 +4,10 @@ import cls from './profile.module.css';
 
 
 export const Profile = () => {
-  return (
-    <main className={cls.main}>
-        MainContent
-        <MyPosts/>
-      </main>
-  );
+    return (
+        <main className={cls.main} >
+            MainContent
+            <MyPosts />
+        </main>
+    );
 }

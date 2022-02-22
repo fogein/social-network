@@ -8,7 +8,7 @@ export const MyPosts = () => {
     <>
       <span className={cls.posts}>My posts</span>
       <Post
-      postText="hello"
+      postText="hello wee"
       />
     </>
   );
