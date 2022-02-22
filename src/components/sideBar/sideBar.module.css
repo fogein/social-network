@@ -5,3 +5,10 @@
   grid-area: nav;
 
 }
+.item{
+  color:#fff;
+}
+.item:focus{
+  color:goldenrod;
+  text-decoration: none;
+}

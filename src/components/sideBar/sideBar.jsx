@@ -7,10 +7,10 @@ export const SideBar = () => {
         <nav className={cls.nav} >
             <ul>
                 <li>
-                    <Link to='/profile' > Profile </Link>
+                    <Link to='/profile' className={cls.item}> Profile </Link>
                 </li>
                 <li>
-                    <Link to='/dialogs' > Messages </Link>
+                    <Link to='/dialogs' className={cls.item} > Messages </Link>
                 </li>
                 <li> News </li>
                 <li> Music </li>
