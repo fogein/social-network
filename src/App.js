@@ -16,7 +16,7 @@ export const App = () => {
                 <Header/>
                 <div className='appWraperContent' >
                     <Routes>
-                        <Route path='/dialogs' element={<Dialogs />} />
+                        <Route  path='/dialogs/*' element={<Dialogs />} />
                         <Route path='/profile' element={<Profile />} />
                     </Routes>
                 </div>
