@@ -7,7 +7,7 @@ export const DialogItem = (props) => {
   return (
     <>
       <Link to={props.id} className={cls.dialog}>
-        {props.name}{props.id}
+        {props.name}
       </Link>
     </>
   );
