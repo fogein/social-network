@@ -8,16 +8,21 @@ import { Header } from './components/header/header';
 
 
 
-export const App = () => {
+export const App = ({ posts, dialogs, messages }) => {
     return (
         <Router>
             <div className="appWraper" >
                 <SideBar />
-                <Header/>
+                <Header />
                 <div className='appWraperContent' >
                     <Routes>
-                        <Route  path='/dialogs/*' element={<Dialogs />} />
-                        <Route path='/profile' element={<Profile />} />
+                        <Route path='/dialogs/*' element={<Dialogs
+                            dialogs={dialogs}
+                            messages={messages}
+                        />} />
+                        <Route path='/profile' element={<Profile
+                            posts={posts}
+                        />} />
                     </Routes>
                 </div>
             </div>

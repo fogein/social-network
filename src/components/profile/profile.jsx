@@ -4,11 +4,11 @@ import cls from './profile.module.css';
 import { ProfileInfo } from './profileInfo/profileInfo';
 
 
-export const Profile = () => {
+export const Profile = ({posts}) => {
     return (
         <main className={cls.main} >
             <ProfileInfo/>
-            <MyPosts />
+            <MyPosts posts={posts} />
         </main>
     );
 }
