@@ -8,7 +8,7 @@ import { Header } from './components/header/header';
 
 
 
-export const App = ({ posts, dialogs, messages }) => {
+export const App = (props) => {
     return (
         <Router>
             <div className="appWraper" >
@@ -17,11 +17,12 @@ export const App = ({ posts, dialogs, messages }) => {
                 <div className='appWraperContent' >
                     <Routes>
                         <Route path='/dialogs/*' element={<Dialogs
-                            dialogs={dialogs}
-                            messages={messages}
+                            dialogsPage={props.state.dialogsPage}
+                            dispatch={props.dispatch}
                         />} />
                         <Route path='/profile' element={<Profile
-                            posts={posts}
+                            dispatch={props.dispatch}
+                            profilePage={props.state.profilePage}
                         />} />
                     </Routes>
                 </div>
