@@ -14,6 +14,9 @@ export const SideBar = () => {
                 </li>
                 <li> News </li>
                 <li> Music </li>
+                <li>
+                    <Link to='/users' className={cls.item} > Users </Link>
+                </li>
                 <li> Settings </li>
             </ul>
         </nav>

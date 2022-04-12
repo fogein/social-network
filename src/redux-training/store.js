@@ -1,5 +1,5 @@
 import { profileReducer } from './profileReducer';
-import { dialogsReducer } from './dialogsReducer';
+import { dialogsReducer } from '../redux/reducers/dialogsReducer';
 
 export let store = {
   _state: {
@@ -50,4 +50,3 @@ export let store = {
 
 // action
 
-window.store = store

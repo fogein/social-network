@@ -1,21 +1,17 @@
 import React from "react";
 import { Post } from "../post/post";
 import cls from "./myPosts.module.css";
-import { addPostActionCreator, updateNewPostTextActionCreator } from './../../../redux/profileReducer';
-
-
 
 export const MyPosts = (props) => {
 
-
   const changeText = (e) => {
     let newText = e.target.value;
-    props.dispatch(updateNewPostTextActionCreator(newText));
+    props.updateNewPostText(newText)
   };
 
   const handleChange = (e) => {
     e.preventDefault();
-    props.dispatch(addPostActionCreator());
+    props.addPost()
   };
   return (
     <>
