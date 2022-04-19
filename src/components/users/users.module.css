@@ -36,3 +36,7 @@
 }
 /* 
 .location {} */
+.selected {
+  font-size:22px ;
+  color: #fff;
+}

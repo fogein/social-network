@@ -8,7 +8,7 @@ import { MyPostsContainer } from './myPosts/myPostsContainer';
 export const Profile = (props) => {
     return (
         <main className={cls.main} >
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <MyPostsContainer/>
         </main>
     );

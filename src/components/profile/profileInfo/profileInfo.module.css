@@ -1,0 +1,37 @@
+.profilePhoto{
+  width: 300px;
+}
+.aboutContainer{
+  padding: 70px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.aboutProfile{
+  display: flex;
+  flex-direction: column;
+}
+.nameAndAbout{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.fullName{
+  font-size: 34px;
+}
+.about{
+  font-size: 18px;
+  font-weight: bold;
+}
+.contacts{
+  margin-bottom: 10px;
+  font-size: 22px;
+  font-weight: bold;
+}
+a{
+  color: #fff;
+  
+}
+.social{
+  font-size: 19px;
+}
