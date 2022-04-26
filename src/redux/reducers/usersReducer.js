@@ -55,10 +55,8 @@ export const usersReducer = (state = initialState, action) => {
       case  TOGGLE_IS_FETCHING:
         return {
           ...state,
-          isFetching: action.isFetching
+          isFetching:action.isFetching
         }
-       
-        
     default:
       return state
   }

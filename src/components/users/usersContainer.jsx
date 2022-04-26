@@ -13,7 +13,9 @@ class UsersContainer extends React.Component {
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
       .then(res => {
-        this.props.toggleIsFetching(false)
+        setTimeout(() => {
+          this.props.toggleIsFetching(false)
+        }, 500);
         this.props.setUsers(res.data.items)
         this.props.setTotalUsersCount(res.data.totalCount)
       });
@@ -25,7 +27,9 @@ class UsersContainer extends React.Component {
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
       .then(res => {
-        this.props.toggleIsFetching(false)
+        setTimeout(() => {
+          this.props.toggleIsFetching(false)
+        }, 500);
         this.props.setUsers(res.data.items)
       }
       );
