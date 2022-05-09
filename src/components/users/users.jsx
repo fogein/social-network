@@ -23,20 +23,25 @@ export const Users = (props) => {
       {
         props.users.map(({ id, photos, followed, name, status }) => {
           return <div key={id} className={cls.container}>
-            
-              <div className={cls.imageButton}>
-               <Link to={`../profile/${id}`}>
+
+            <div className={cls.imageButton}>
+              <Link to={`../profile/${id}`}>
                 <img className={cls.avaImage} src={photos.small != null ? photos.small : userPhoto} alt="avatar" />
-                </Link>
-                {followed
-                  ?
-                  <button onClick={() => props.unfollow(id)}>unfollow</button>
-                  :
-                  <button onClick={() => props.follow(id)}>follow</button>}
+              </Link>
+              
+              {followed
+
+                ?
+
+                <button disabled={props.followingProgress.some(n => n === id)} onClick={() => props.unfollowingUser(id)}>unfollow</button>
+
+                :
+
+                <button disabled={props.followingProgress.some(n => n === id)} onClick={() => props.followingUser(id)}>follow</button>}
 
 
-              </div>
-            
+            </div>
+
             <div className={cls.desriptionContainer}>
               <div className={cls.nameStatus}>
                 <span>{name}</span>

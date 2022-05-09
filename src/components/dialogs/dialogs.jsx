@@ -14,7 +14,6 @@ export const Dialogs = (props) => {
     e.preventDefault();
     props.sendMessage()
   };
-
   return (
     <div className={cls.dialogs}>
       <div className={cls.dialogsItem}>
