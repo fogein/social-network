@@ -4,6 +4,7 @@ import cls from './profileInfo.module.css'
 import { ProfileStatus } from './profileStatus'
 
 export const ProfileInfo = (props) => {
+
   if (!props.profile) {
     return <Preloader />
   }
@@ -16,7 +17,8 @@ export const ProfileInfo = (props) => {
         <div className={cls.aboutProfile}>
           <div className={cls.nameAndAbout}>
             <span className={cls.fullName}>{props.profile.fullName}</span>
-            <ProfileStatus status={props.profile.aboutMe}/>
+            <span className={cls.aboutMe}>{props.profile.aboutMe}</span>
+            <ProfileStatus updateStatus={props.updateStatus} status={props.status}/>
           </div>
           <span className={cls.contacts}>Contacts</span>
           <span className={cls.social}>Twitter  <a href={props.profile.contacts.twitter}>{props.profile.contacts.twitter}</a> </span>

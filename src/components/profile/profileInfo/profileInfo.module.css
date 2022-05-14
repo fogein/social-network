@@ -19,7 +19,7 @@
 .fullName{
   font-size: 34px;
 }
-.about{
+.aboutMe{
   font-size: 18px;
   font-weight: bold;
 }
@@ -34,4 +34,8 @@ a{
 }
 .social{
   font-size: 19px;
+}
+.status{
+  font-size: 20px;
+  color: cadetblue;
 }

@@ -6,10 +6,9 @@ import { MyPostsContainer } from './myPosts/myPostsContainer';
 
 
 export const Profile = (props) => {
-    console.log(props);
     return (
         <main className={cls.main} >
-            <ProfileInfo profile={props.profile}/>
+            <ProfileInfo updateStatus={props.updateStatus} status={props.status} profile={props.profile}/>
             <MyPostsContainer/>
         </main>
     );

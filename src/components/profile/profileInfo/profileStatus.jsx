@@ -1,14 +1,35 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import cls from './profileInfo.module.css'
 
-export const ProfileStatus = ({ status }) => {
+export const ProfileStatus = ({ status, updateStatus }) => {
+
   const [editMode, setEditMode] = useState(false);
+  const [statusText, setStatusText] = useState(status);
+
+ 
+  const deactivateInput = () => {
+    setEditMode(false)
+    updateStatus(statusText)
+  }
+  const onChangeHandler = (e) => {
+    let text = e.target.value;
+    setStatusText(text)
+  }
+
+  useEffect(() => {
+   if (statusText === '') {
+    setStatusText(status)
+   }
+  }, [statusText, status], );
+
   return (
     <>
-      { !editMode ?
-      <span onDoubleClick={() => setEditMode(true)} className={cls.about}>{status}</span>
-      :
-      <input autoFocus={true} onBlur={() => setEditMode(false)} type="text" value={status} />
+      {!editMode ?
+        <span onDoubleClick={() => setEditMode(true)} className={cls.status}>{status ? status : '_____'}</span>
+        :
+        <input onChange={onChangeHandler}
+          autoFocus={true}
+          onBlur={deactivateInput} type="text" value={statusText} />
       }
     </>
   )

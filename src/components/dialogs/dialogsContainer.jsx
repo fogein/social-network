@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/reducers/dialogsReducer';
 import { Dialogs } from "./dialogs";
 
@@ -26,5 +25,4 @@ let mapDispatchToProps = (dispatch) => {
 export const DialogsContainer =  
 compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withAuthRedirect
   )(Dialogs)

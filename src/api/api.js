@@ -26,13 +26,29 @@ export const usersApi = {
       .then(res => res.data)
   },
   getProfile(userId) {
-    return instance
-      .get(`profile/${userId ? userId : userId = 2}`)
-      .then(res => res.data)
+    return profileApi.getProfile(userId)
   },
   authMe() {
     return instance
       .get(`auth/me`)
       .then(res => res.data)
   },
+}
+export const profileApi = {
+  getProfile(userId) {
+    return instance
+      .get(`profile/${userId}`)
+      .then(res => res.data)
+  },
+  getStatus(userId) {
+    return instance
+      .get(`profile/status/${userId}`)
+      .then(res => res.data)
+  },
+  updateStatus(status) {
+    return instance
+    .put(`profile/status`,{status})
+    .then(res => res.data)
+  },
+
 }
