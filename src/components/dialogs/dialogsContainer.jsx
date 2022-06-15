@@ -4,7 +4,9 @@ import { updateNewMessageBodyCreator, sendMessageCreator } from '../../redux/red
 import { Dialogs } from "./dialogs";
 
 
+
 let mapStateToProps = (state) => {
+  
   return {
     dialogs: state.dialogsPage.dialogs,
     messages: state.dialogsPage.messages,
@@ -21,6 +23,7 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 }
+
 
 export const DialogsContainer =  
 compose(

@@ -5,8 +5,11 @@ export const ProfileStatus = ({ status, updateStatus }) => {
 
   const [editMode, setEditMode] = useState(false);
   const [statusText, setStatusText] = useState(status);
+  
+  useEffect(() => {
+    setStatusText(status)
+  }, [status]);
 
- 
   const deactivateInput = () => {
     setEditMode(false)
     updateStatus(statusText)
@@ -16,11 +19,6 @@ export const ProfileStatus = ({ status, updateStatus }) => {
     setStatusText(text)
   }
 
-  useEffect(() => {
-   if (statusText === '') {
-    setStatusText(status)
-   }
-  }, [statusText, status], );
 
   return (
     <>

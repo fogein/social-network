@@ -8,6 +8,22 @@ const instance = axios.create({
     'API-KEY': '98f4ebc9-f85c-4248-acce-b3f3feb6f682'
   }
 })
+export const authApi = {
+  me() {
+    return instance
+      .get(`auth/me`)
+      .then(res => res.data)
+  },
+  login(email,password,rememberMe=false) {
+    return instance
+      .post(`auth/login`,{email,password,rememberMe})
+      .then(res => res.data)
+  },
+  logout() {
+    return instance
+      .delete(`auth/login`)
+  },
+}
 
 export const usersApi = {
   getUsers(currentPage, pageSize) {
@@ -27,11 +43,6 @@ export const usersApi = {
   },
   getProfile(userId) {
     return profileApi.getProfile(userId)
-  },
-  authMe() {
-    return instance
-      .get(`auth/me`)
-      .then(res => res.data)
   },
 }
 export const profileApi = {
