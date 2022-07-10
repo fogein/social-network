@@ -5,7 +5,7 @@ export const ProfileStatus = ({ status, updateStatus }) => {
 
   const [editMode, setEditMode] = useState(false);
   const [statusText, setStatusText] = useState(status);
-  
+
   useEffect(() => {
     setStatusText(status)
   }, [status]);
@@ -28,6 +28,25 @@ export const ProfileStatus = ({ status, updateStatus }) => {
         <input onChange={onChangeHandler}
           autoFocus={true}
           onBlur={deactivateInput} type="text" value={statusText} />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
       }
     </>
   )

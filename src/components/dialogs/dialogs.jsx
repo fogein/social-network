@@ -2,19 +2,12 @@ import React from "react";
 import cls from "./dialogs.module.css";
 import { DialogItem } from "./dialogItem/dialogItem";
 import { Message } from "./message/message";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+
 
 export const Dialogs = (props) => {
 
-  // const changeText = (e) => {
-  //   let newText = e.target.value;
-  //   props.updateMessageText(newText)
-  // };
 
-  // const onSendMessage = (e) => {
-  //   e.preventDefault();
-  //   props.sendMessage()
-  // };
   return (
     <div className={cls.dialogs}>
       <div className={cls.dialogsItem}>
@@ -27,7 +20,7 @@ export const Dialogs = (props) => {
           return <Message key={id} message={message} />;
         })}
         <div>
-          <DialogsInput sendMessage={props.sendMessage}/>
+          <DialogsInput sendMessage={props.sendMessage} />
         </div>
       </div>
     </div>
@@ -35,13 +28,22 @@ export const Dialogs = (props) => {
 };
 
 const DialogsInput = (props) => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    props.sendMessage(data.message)
+  const [message, setMessage] = useState('')
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    props.sendMessage(message)
+    setMessage('')
+
   }
+  const onChangeHandler = (e) => {
+    let text = e.target.value
+    setMessage(text)
+  }
+
   return (
-    <form className={cls.form} onSubmit={handleSubmit(onSubmit)}>
-      <input className={cls.inpur} type="text" placeholder='Enter your message'{...register("message")} />
+    <form className={cls.form} onSubmit={onSubmit}>
+      <input className={cls.inpur} onChange={onChangeHandler} value={message} type="text" placeholder='Enter your message' />
       <button>Send</button>
     </form>
 

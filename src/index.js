@@ -7,21 +7,15 @@ import './index.css';
 import { App } from './App';
 import { Provider } from 'react-redux';
 
-let rerender = (state) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App
-          store={store}
-          state={state}
-          dispatch={store.dispatch.bind(store)}
-        />
-      </Provider>
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-}
-rerender(store.getState());
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>, document.getElementById('root')
+);
+
 
 
 
