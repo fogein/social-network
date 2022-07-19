@@ -2,24 +2,21 @@ import React from 'react'
 import cls from './users.module.css';
 import userPhoto from '../../assets/images/user.png';
 import { Link } from 'react-router-dom';
+import { Pagination } from '../paginator/pagination';
 
 
 export const Users = (props) => {
 
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i)
-  }
 
   return (
     <>
-      <div>
-        {pages.map(p => {
-          return <span onClick={() => props.onPageChanged(p)} className={props.currentPage === p && cls.selected}>{p}</span>
-        })}
-      </div>
+      <Pagination
+        totalUsersCount={props.totalUsersCount}
+        pageSize={props.pageSize}
+        onPageChanged={props.onPageChanged}
+        currentPage={props.currentPage}
+        />
       {
         props.users.map(({ id, photos, followed, name, status }) => {
           return <div key={id} className={cls.container}>
@@ -28,7 +25,7 @@ export const Users = (props) => {
               <Link to={`../profile/${id}`}>
                 <img className={cls.avaImage} src={photos.small != null ? photos.small : userPhoto} alt="avatar" />
               </Link>
-              
+
               {followed
 
                 ?

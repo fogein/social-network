@@ -28,25 +28,6 @@ export const ProfileStatus = ({ status, updateStatus }) => {
         <input onChange={onChangeHandler}
           autoFocus={true}
           onBlur={deactivateInput} type="text" value={statusText} />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           
       }
     </>
   )

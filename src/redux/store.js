@@ -14,5 +14,5 @@ let reducers = combineReducers({
   auth:authReducer,
   app:appReducer
 });
-export let store = createStore(reducers,applyMiddleware(thunkMiddleware));
+export const store = createStore(reducers,applyMiddleware(thunkMiddleware));
 window.store = store
