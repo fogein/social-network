@@ -1,41 +1,75 @@
-.profilePhoto{
+.profilePhoto {
   width: 300px;
 }
-.aboutContainer{
-  padding: 70px;
+.container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
-.aboutProfile{
+.profilePhotoContainer {
+  padding: 40px;
   display: flex;
   flex-direction: column;
 }
-.nameAndAbout{
+.profileDataContainer {
+  padding: 40px;
+}
+.aboutProfile {
+  flex-direction: column;
+}
+.nameAndAbout {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   margin-bottom: 10px;
 }
-.fullName{
+.fullName {
   font-size: 34px;
 }
-.aboutMe{
+.aboutMe {
   font-size: 18px;
   font-weight: bold;
 }
-.contacts{
+.contacts {
   margin-bottom: 10px;
   font-size: 22px;
   font-weight: bold;
 }
-a{
+a {
   color: #fff;
-  
 }
-.social{
+.social {
   font-size: 19px;
 }
-.status{
+.status {
   font-size: 20px;
   color: cadetblue;
+}
+.contactsValue {
+  padding-left: 10px;
+}
+.editForm {
+  display: flex;
+  flex-direction: column;
+}
+.editInput {
+  display: flex;
+  flex-direction: column;
+}
+.editInput input,
+select {
+  height: 30px;
+}
+.editButton {
+  display: flex;
+  padding: 5px 10px;
+}
+.editInput input:hover {
+  opacity: 0.7;
+}
+.editInput input:focus {
+  border: none;
+}
+.error{
+  color:red;
+  font-size: 15px;
 }

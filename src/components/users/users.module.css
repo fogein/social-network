@@ -40,3 +40,10 @@
   font-size:22px ;
   color: rgb(23, 124, 126);
 }
+.pages{
+  font-size: 18px;
+  cursor: pointer;
+  margin-right: 3px;
+  margin-left: 3px;
+
+}

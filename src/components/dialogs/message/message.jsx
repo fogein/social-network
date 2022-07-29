@@ -1,5 +1,5 @@
 import React from "react";
-import cls from "./message.module.css";
+import cls from "../dialogs.module.css";
 
 export const Message = (props) => {
   return (

@@ -24,8 +24,8 @@ export const MyPosts = (props) => {
         />
         <button onClick={handleChange}>addPost</button>
       </form>
-      {props.posts.map(({ message }) => {
-        return <Post postText={message} />;
+      {props.posts.map(({ message,id }) => {
+        return <Post key={id} postText={message} />;
       })}
     </>
   );

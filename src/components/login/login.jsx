@@ -9,7 +9,7 @@ import { login } from '../../redux/reducers/authReducer';
 export const Login = () => {
   const dispatch = useDispatch()
   const auth = useSelector((state) => state.auth.isAuth)
-  const error = useSelector((state) => state.auth.errorText)
+  const errorAuth = useSelector((state) => state.auth.errorText)
 
 
   const { register, setError, handleSubmit, formState: { errors } } = useForm();
@@ -22,10 +22,10 @@ export const Login = () => {
   }
 
   React.useEffect(() => {
-    if (error !== '') {
+    if (errorAuth !== '') {
       setError("password", { type: "focus" }, { shouldFocus: true });
     }
-  }, [error, setError])
+  }, [errorAuth, setError])
 
 
   if (auth) {
@@ -42,9 +42,9 @@ export const Login = () => {
           {errors.email && <span> This field is required</span>}
         </div>
         <div> <input type="password" placeholder='password'{...register("password", { required: true })} />
-          { error!==''
+          { errorAuth!==''
           ? 
-          errors.password &&<span> {error}</span>
+          errors.password &&<span> {errorAuth}</span>
           :
           errors.password && <span> This field is required</span>
           }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import cls from '../users/users.module.css';
+import cn from 'classnames';
 
 export const Pagination = ({ totalUsersCount, pageSize, onPageChanged, currentPage, portionSize = 10 }) => {
 
@@ -19,7 +20,6 @@ export const Pagination = ({ totalUsersCount, pageSize, onPageChanged, currentPa
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
 
-
   return (
     <div className={cls.paginator}>
       {portionNumber > 1 &&
@@ -27,7 +27,8 @@ export const Pagination = ({ totalUsersCount, pageSize, onPageChanged, currentPa
       {pages
         .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
         .map(p => {
-          return <span onClick={() => onPageChanged(p)} className={currentPage === p && cls.selected}>{p}</span>
+          return <span onClick={() => onPageChanged(p)} 
+          className={cn({[cls.selected]: currentPage === p},cls.pages)}>{p}</span>
         })}
 
       {

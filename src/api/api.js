@@ -14,9 +14,9 @@ export const authApi = {
       .get(`auth/me`)
       .then(res => res.data)
   },
-  login(email,password,rememberMe=false) {
+  login(email, password, rememberMe = false) {
     return instance
-      .post(`auth/login`,{email,password,rememberMe})
+      .post(`auth/login`, { email, password, rememberMe })
       .then(res => res.data)
   },
   logout() {
@@ -58,8 +58,24 @@ export const profileApi = {
   },
   updateStatus(status) {
     return instance
-    .put(`profile/status`,{status})
-    .then(res => res.data)
+      .put(`profile/status`, { status })
+      .then(res => res.data)
+  },
+  savePhoto(file) {
+    let formData = new FormData()
+    formData.append("image", file)
+    return instance
+      .put(`profile/photo`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(res => res.data)
+  },
+  saveProfile(profile) {
+    return instance
+      .put(`profile`, profile )
+      .then(res => res.data)
   },
 
 }

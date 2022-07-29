@@ -23,7 +23,7 @@ export const ProfileStatus = ({ status, updateStatus }) => {
   return (
     <>
       {!editMode ?
-        <span onDoubleClick={() => setEditMode(true)} className={cls.status}>{status ? status : '_____'}</span>
+        <span onDoubleClick={() => setEditMode(true)} className={cls.status}>Status: {status ? status : '_____'}</span>
         :
         <input onChange={onChangeHandler}
           autoFocus={true}
