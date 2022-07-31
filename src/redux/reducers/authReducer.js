@@ -2,6 +2,7 @@ import { authApi } from './../../api/api';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const setErrorText = 'SET_ERROR';
+const GET_CAPTCHA = 'GET_CAPTCHA';
 
 
 let initialState = {
@@ -11,6 +12,7 @@ let initialState = {
   isFetching: false,
   isAuth: false,
   errorText:'',
+  captchaUrl:''
 
 }
 export const authReducer = (state = initialState, action) => {
@@ -25,6 +27,11 @@ export const authReducer = (state = initialState, action) => {
         return {
           ...state,
           errorText:action.error
+        }
+      case GET_CAPTCHA:
+        return {
+          ...state,
+          captchaUrl:action.captchaUrl
         }
     default:
       return state
@@ -43,6 +50,12 @@ const setError = (error) => {
     error
   };
 };
+const getCaptchaAC = (captchaUrl) => {
+  return {
+    type: GET_CAPTCHA,
+    captchaUrl
+  };
+};
 
 export const authMe = () => {
   return (dispatch) => {
@@ -51,21 +64,34 @@ export const authMe = () => {
         if (data.resultCode === 0) {
           let { email, id, login } = data.data
           dispatch(setAuthUserData(email, id, login,true))
+          dispatch(setError(''))
         }
       })
   }
 }
 
-export const login = (email,password,rememberMe) => {
+export const login = (email,password,rememberMe,captcha) => {
   return (dispatch) => {
-    authApi.login(email,password,rememberMe)
+    authApi.login(email,password,rememberMe,captcha)
       .then(data => {
         if (data.resultCode === 0) {   
           dispatch(authMe())
           
-        } else if (data.resultCode === 1) {
+        } else if (data.resultCode === 1 ) {
           dispatch(setError(data.messages))
         }
+        else if (data.resultCode === 10 ) {
+          dispatch(setError(data.messages))
+          dispatch(getCaptcha())
+        }
+      })
+  }
+}
+const getCaptcha = () => {
+  return (dispatch) => {
+    authApi.getCaptchaUrl()
+      .then(data => {
+          dispatch(getCaptchaAC(data.url))        
       })
   }
 }

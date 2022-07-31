@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -10,6 +10,7 @@ export const Login = () => {
   const dispatch = useDispatch()
   const auth = useSelector((state) => state.auth.isAuth)
   const errorAuth = useSelector((state) => state.auth.errorText)
+  const captcha = useSelector((state) => state.auth.captchaUrl)
 
 
   const { register, setError, handleSubmit, formState: { errors } } = useForm();
@@ -18,7 +19,8 @@ export const Login = () => {
     let email = data.email
     let password = data.password
     let rememberMe = data.rememberMe
-    dispatch(login(email, password, rememberMe))
+    let captcha = data.captcha
+    dispatch(login(email, password, rememberMe,captcha))
   }
 
   React.useEffect(() => {
@@ -47,6 +49,15 @@ export const Login = () => {
           errors.password &&<span> {errorAuth}</span>
           :
           errors.password && <span> This field is required</span>
+          }
+        </div>
+
+        <div>
+          {
+          captcha !== '' && <img src={captcha} alt="Captcha" />
+          }
+          {
+          captcha !== '' && <input type="captcha" placeholder='captcha'{...register("captcha", { required: true })} /> 
           }
         </div>
 
